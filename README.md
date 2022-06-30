@@ -15,13 +15,13 @@ For the purposes of understanding our resulting models, we conducted some basic 
 
 To begin, we investigated the distribution of categories across our dataset.
 
-![image](https://user-images.githubusercontent.com/25912759/176139771-c85ca0cd-8381-405f-8523-5e246b15a5a6.png)
+![categories](https://user-images.githubusercontent.com/25912759/176734674-134be288-f667-4171-a5aa-5317a71d288e.png)
 > Horizontal bar chart of news article categories and their frequencies.
 
 From this, we are able to conclude there is a major (unexpected) imbalance in article categories. By far, the two most common categories were news and sports. This should be kept in mind when we evaluate model accuracy, since we do not have a large enough train set for some of these categories to perform extremely well.
 
 Next, we investigated the distribution of news sections.
-![image](https://user-images.githubusercontent.com/25912759/176141093-a474b282-c0d9-4ed3-bc69-87066738a1fe.png)
+![sections](https://user-images.githubusercontent.com/25912759/176734729-5c6e3416-5c89-4b40-ac76-869b61e07690.png)
 > Horizontal bar chart of news article sections and their frequencies.
 
 To display these findings nicely, we chose to hide any sections that occurred with a frequency less than 50 times. It should be noted, however, that there were a little of 300 articles that had less commonly observed sections. Since there are no clear pluralities in article section, we chose not to use Section in our classification problem.
@@ -30,8 +30,8 @@ Additionally, we conducted investigations into the headlines themselves. After t
 
 For the sake of brevity, we've included the distribution of commonly observed words to the two largest categories - 'news' and 'sports'. We've also limited the barplot to the top 25 most commonly appearing words.
 
-![image](https://user-images.githubusercontent.com/25912759/176143653-2fa83a31-7e39-43e9-83a7-89899c15a518.png) ![image](https://user-images.githubusercontent.com/25912759/176143755-21c73a5c-6b6d-4866-9683-ce983e67f908.png)
-
+![news](https://user-images.githubusercontent.com/25912759/176734750-f991bae9-7d50-4870-b457-3dcbde2adae2.png)
+![sports](https://user-images.githubusercontent.com/25912759/176734769-2ae2505e-10fe-4924-ae85-a0eb3a454dd8.png)
 
 
 ## Findings:
