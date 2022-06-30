@@ -1,4 +1,5 @@
 # CNN Article Headline Classification
+> project for MSDS631 - Introduction to Deep Learning course 2022
 ### Joleena Marshall & Edith Lee (Cohort 10)
 
 ## Introduction
@@ -57,22 +58,29 @@ Finally, we tried a basic LSTM architecture, reaching an accuracy of 75.5%.
 Given more time, we would have spent more time experimenting with different RNN and LSTM architectures, such as adding additional layers. Also, it should be noted we generally stuck to a 5 epoch, 0.001 learning rate training regimen. Additional time would also be spent tweaking hyperparameters.
 
 ## Bonus task: Headline Generation
-In the spirit of experimentation and learning, we also attempted a headline generation LSTM model. This proved interesting to play with, if only to learn more about the nature of the task. Surprisingly, the LSTM architecture remains pretty much identical for the LSTM model used in the classification task. The main difference lies in the creation of the Dataset. Instead of using the headline and its respective category label as $x$ and $y$, we instead create a dataset using the headline as $x$ and a shifted version of the same headline as $y$.
+In the spirit of experimentation and learning, we also attempted a headline generation LSTM model. This proved interesting to play with, if only to learn more about the nature of the task. Surprisingly, the LSTM architecture remains pretty much identical for the LSTM model used in the classification task. The main difference lies in the creation of the Dataset. Instead of using the headline and its respective category label as x and y, we instead create a dataset using the headline as x and a shifted version of the same headline as y.
 
 Additionally, we may choose to add weights to certain related vocabulary by passing it in to the loss function used in training.
 
 Here's an example of our results:
+
 ![gen1](https://user-images.githubusercontent.com/25912759/176728120-74f67bf6-cc8d-496c-b7e8-fe449b891b72.png)
 > LSTM model before training - generated randomly
 
 ![gen2](https://user-images.githubusercontent.com/25912759/176728186-0a478dc9-f491-4e92-8d7d-91d1761f5320.png)
 > LSTM model after 4 epochs of training
 
-In this case, we were not able to add weights in the training set. As we can see, the generation results are not extremely promising after 4 epochs of training. There are still many UNK values, even after 10 minutes of training. 
+In this case, we were not able to add weights in the training set. As we can see, the generation results are a little promising after 4 epochs of training. There are still many UNK values, even after 10 minutes of training though. 
 
 This may be a result of a couple of factors:
 * Not enough training data - most NLP models are trained with millions of rows of data.
 * Weighted training is highly needed.
+
+Other interesting generation examples:
+
+![police_gen](https://user-images.githubusercontent.com/25912759/176731308-32679402-97d8-491d-bffb-334bbeb23d69.png)
+![team_gen](https://user-images.githubusercontent.com/25912759/176731348-cfac098c-a887-4b04-8130-fc287d6e316f.png)
+![london_gen](https://user-images.githubusercontent.com/25912759/176731375-5b992606-d7c5-4b6e-9aa0-90a2df33dd9b.png)
 
 ## Other interesting problems
 NLP on news headlines has a variety of interesting problems to explore. Given more time, we would have liked to do more investigation into the following:
