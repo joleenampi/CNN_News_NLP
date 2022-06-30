@@ -36,17 +36,48 @@ For the sake of brevity, we've included the distribution of commonly observed wo
 ## Findings:
 
 ### Baseline
+For our baseline model, we tried using [LinearSVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html), a package implemented in scikit-learn that utilizes Support Vector Machines for classification problems. This had a surprisingly high model performance at 91% accuracy. 
 ### CBOW
+Next, we tried using the Continuous Bag of Words approach to classify headlines. This model performed the worst at 47% accuracy. However, this was to be expected given the nature of the CBOW model. Since the CBOW model uses the center of the string's vector representation to make predictions, we would not expect it to perform highly.
 ### BERT
+We tried using a pre-trained BERT model, but the expected train time and computer power was too high, so we cut it off. However, the BERT model for prediction would feasibly do quite well, given the corpus it was trained on.
+### RNN
+Our basic RNN architecture worked quite well with an accuracy of 61%.
 ### LSTM
+Finally, we tried a basic LSTM architecture, reaching an accuracy of 75.5%.
+
+| Model | Performance (Accuracy) |
+| --- | --- |
+| LinearSVC |  91% |
+| LSTM | 75.5% |
+| RNN | 61% |
+| CBOW | 47% |
 
 ## Other approaches
+Given more time, we would have spent more time experimenting with different RNN and LSTM architectures, such as adding additional layers. Also, it should be noted we generally stuck to a 5 epoch, 0.001 learning rate training regimen. Additional time would also be spent tweaking hyperparameters.
+
+## Bonus task: Headline Generation
+In the spirit of experimentation and learning, we also attempted a headline generation LSTM model. This proved interesting to play with, if only to learn more about the nature of the task. Surprisingly, the LSTM architecture remains pretty much identical for the LSTM model used in the classification task. The main difference lies in the creation of the Dataset. Instead of using the headline and its respective category label as $x$ and $y$, we instead create a dataset using the headline as $x$ and a shifted version of the same headline as $y$.
+
+Additionally, we may choose to add weights to certain related vocabulary by passing it in to the loss function used in training.
+
+Here's an example of our results:
+![gen1](https://user-images.githubusercontent.com/25912759/176728120-74f67bf6-cc8d-496c-b7e8-fe449b891b72.png)
+> LSTM model before training - generated randomly
+
+![gen2](https://user-images.githubusercontent.com/25912759/176728186-0a478dc9-f491-4e92-8d7d-91d1761f5320.png)
+> LSTM model after 4 epochs of training
+
+In this case, we were not able to add weights in the training set. As we can see, the generation results are not extremely promising after 4 epochs of training. There are still many UNK values, even after 10 minutes of training. 
+
+This may be a result of a couple of factors:
+* Not enough training data - most NLP models are trained with millions of rows of data.
+* Weighted training is highly needed.
 
 ## Other interesting problems
 NLP on news headlines has a variety of interesting problems to explore. Given more time, we would have liked to do more investigation into the following:
 * classification of category based on full article text
-* predict author based on category and article text
-* generate the headline using the article body
+* predict author based on category and article text (based on style, type of article, etc.)
 
 ## Acknowledgements
 Thank you for reading! If you have any questions about our code, methodology, etc. feel free to reach out! 
