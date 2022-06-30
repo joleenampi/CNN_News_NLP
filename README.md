@@ -36,9 +36,22 @@ For the sake of brevity, we've included the distribution of commonly observed wo
 ## Findings:
 
 ### Baseline
+For our baseline model, we tried using LinearSVC, a package implemented in scikit-learn that utilizes Support Vector Machines for classification problems. This had a surprisingly high model performance at 91% accuracy. 
 ### CBOW
+Next, we tried using the Continuous Bag of Words approach to classify headlines. This model performed the worst at 47% accuracy. However, this was to be expected given the extremely basic nature of the CBOW model. 
 ### BERT
+We tried using a pre-trained BERT model, but cut it off mid-way due to lack of time.
+### RNN
+Our basic RNN architecture worked quite well with an accuracy of 61%.
 ### LSTM
+Finally, we tried a basic LSTM architecture, reaching an accuracy of 75.5%.
+
+| Model | Performance (Accuracy) |
+| --- | --- |
+| LinearSVC |  91% |
+| LSTM | 75.5% |
+| RNN | 61% |
+| CBOW | 47% |
 
 ## Other approaches
 
